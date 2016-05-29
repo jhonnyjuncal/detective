@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_principal"
+            android:icon="@mipmap/ic_menu_home"
+            android:title="@string/label_inicio" />
+        <item
+            android:id="@+id/nav_cambiar_contrasena"
+            android:icon="@mipmap/ic_menu_home"
+            android:title="Gallery" />
+        <item
+            android:id="@+id/nav_borrar_coordenadas"
+            android:icon="@mipmap/ic_menu_home"
+            android:title="Slideshow" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_compartir"
+                android:icon="@mipmap/ic_menu_share"
+                android:title="@string/label_compartir" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@mipmap/ic_menu_forward_mail"
+                android:title="Send" />
+        </menu>
+    </item>
+
+    <item android:title="Config">
+        <menu>
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@mipmap/ic_menu_manage"
+                android:title="@string/action_settings" />
+        </menu>
+    </item>
+
+
+    <item android:title="Acerca">
+        <menu>
+            <item
+                android:id="@+id/nav_desarrollador"
+                android:icon="@mipmap/ic_menu_contact"
+                android:title="@string/label_desarrollador" />
+            <item
+                android:id="@+id/nav_acerca"
+                android:icon="@mipmap/ic_menu_info_details"
+                android:title="@string/label_acerca" />
+        </menu>
+    </item>
+</menu>

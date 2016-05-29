@@ -1,4 +1,0 @@
-detective
-=========
-
-app detective
