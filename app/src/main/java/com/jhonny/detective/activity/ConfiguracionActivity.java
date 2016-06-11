@@ -8,17 +8,18 @@ import java.util.Properties;
 
 import com.jhonny.detective.Constantes;
 import com.jhonny.detective.util.FileUtil;
-import com.jhonny.detective.Location.Localizador;
+import com.jhonny.detective.location.Localizador;
 import com.jhonny.detective.R;
-import com.millennialmedia.android.MMAdView;
-import com.millennialmedia.android.MMRequest;
-import com.millennialmedia.android.MMSDK;
+
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -40,13 +41,13 @@ import android.support.v7.app.AppCompatActivity;
 
 
 public class ConfiguracionActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, OnItemSelectedListener {
-	
+
 	private Spinner spDistancia;
 	private Spinner spTiempo;
 	private Spinner spFondo;
 	private View view;
 	private Context context;
-	
+
 	private static String PASS;
 	private static float DISTANCIA_MINIMA_PARA_ACTUALIZACIONES;
 	private static long TIEMPO_MINIMO_ENTRE_ACTUALIZACIONES;
@@ -54,73 +55,73 @@ public class ConfiguracionActivity extends AppCompatActivity implements Navigati
 	private static String FONDO_PANTALLA;
 	private static String EMAIL;
 	private int contSalida = 0;
-	
+
 	//Constants for tablet sized ads (728x90)
 	private static final int IAB_LEADERBOARD_WIDTH = 728;
 	private static final int MED_BANNER_WIDTH = 480;
 	//Constants for phone sized ads (320x50)
 	private static final int BANNER_AD_WIDTH = 320;
 	private static final int BANNER_AD_HEIGHT = 50;
-	
-	
+
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.content_configuracion);
-		
+		setContentView(R.layout.activity_configuracion);
+
 		contSalida = 0;
 		int pos1 = 0;
 		int pos2 = 0;
 		int pos3 = 0;
-		
-		try{
+
+		try {
 			this.context = this;
 			this.view = getWindow().getDecorView();
 
 			// barra de herramientas
 			Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 			setSupportActionBar(toolbar);
-			
+
 			// se cargan los datos de la configuracion almacenada
 			spDistancia = (Spinner) findViewById(R.id.spinner1);
 			spTiempo = (Spinner) findViewById(R.id.spinner2);
 			spFondo = (Spinner) findViewById(R.id.spinner3);
-			
+
 			cargarSpinnerFondoPantallas();
-			
+
 			pos1 = FileUtil.getPosicionSpinnerSeleccionada(1, this);
 			pos2 = FileUtil.getPosicionSpinnerSeleccionada(2, this);
 			pos3 = FileUtil.getPosicionSpinnerSeleccionada(3, this);
-			
+
 			spDistancia.setSelection(pos1);
 			spTiempo.setSelection(pos2);
 			spFondo.setSelection(pos3);
-			
+
 			spDistancia.setOnItemSelectedListener(this);
 			spTiempo.setOnItemSelectedListener(this);
 			spFondo.setOnItemSelectedListener(this);
-			
+
 			int placementWidth = BANNER_AD_WIDTH;
 
 			//Finds an ad that best fits a users device.
-			if(canFit(IAB_LEADERBOARD_WIDTH)) {
-			    placementWidth = IAB_LEADERBOARD_WIDTH;
-			}else if(canFit(MED_BANNER_WIDTH)) {
-			    placementWidth = MED_BANNER_WIDTH;
+			if (canFit(IAB_LEADERBOARD_WIDTH)) {
+				placementWidth = IAB_LEADERBOARD_WIDTH;
+			} else if (canFit(MED_BANNER_WIDTH)) {
+				placementWidth = MED_BANNER_WIDTH;
 			}
-			
-			MMAdView adView = new MMAdView(this);
-			adView.setApid("148574");
-			MMRequest request = new MMRequest();
-			adView.setMMRequest(request);
-			adView.setId(MMSDK.getDefaultAdId());
-			adView.setWidth(placementWidth);
-			adView.setHeight(BANNER_AD_HEIGHT);
 
-			LinearLayout layout = (LinearLayout)findViewById(R.id.linearLayout2);
+//			MMAdView adView = new MMAdView(this);
+//			adView.setApid("148574");
+//			MMRequest request = new MMRequest();
+//			adView.setMMRequest(request);
+//			adView.setId(MMSDK.getDefaultAdId());
+//			adView.setWidth(placementWidth);
+//			adView.setHeight(BANNER_AD_HEIGHT);
+
+			LinearLayout layout = (LinearLayout) findViewById(R.id.linearLayout2);
 			//Add the adView to the layout. The layout is assumed to be a RelativeLayout.
-			layout.addView(adView);
-			adView.getAd();
+//			layout.addView(adView);
+//			adView.getAd();
 
 			DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 			ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -130,57 +131,57 @@ public class ConfiguracionActivity extends AppCompatActivity implements Navigati
 			NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 			navigationView.setNavigationItemSelectedListener(this);
 
-		}catch(Exception ex){
+		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 //		MenuInflater inflater = getSupportMenuInflater();
 //		inflater.inflate(R.menu.menu_configuracion, menu);
 		return true;
 	}
-	
+
 	@Override
-	public void onResume(){
+	public void onResume() {
 		super.onResume();
 		contSalida = 0;
 //		reiniciarFondoOpciones();
 		cargaConfiguracionGlobal();
 		cargaPublicidad();
 	}
-	
+
 	@Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-    	if(keyCode == KeyEvent.KEYCODE_BACK) {
-    		if(contSalida == 0){
-    			contSalida++;
-    			Toast.makeText(this, getResources().getString(R.string.txt_salir_1_aviso), Toast.LENGTH_SHORT).show();
-    			return true;
-    		}else{
-    			contSalida = 0;
-    			Intent intent = new Intent();
-    			intent.setAction(Intent.ACTION_MAIN);
-    			intent.addCategory(Intent.CATEGORY_HOME);
-    			startActivity(intent);
-    		}
-    	}
-    	//para las demas cosas, se reenvia el evento al listener habitual
-    	return super.onKeyDown(keyCode, event);
-    }
-	
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			if (contSalida == 0) {
+				contSalida++;
+				Toast.makeText(this, getResources().getString(R.string.txt_salir_1_aviso), Toast.LENGTH_SHORT).show();
+				return true;
+			} else {
+				contSalida = 0;
+				Intent intent = new Intent();
+				intent.setAction(Intent.ACTION_MAIN);
+				intent.addCategory(Intent.CATEGORY_HOME);
+				startActivity(intent);
+			}
+		}
+		//para las demas cosas, se reenvia el evento al listener habitual
+		return super.onKeyDown(keyCode, event);
+	}
+
 	@Override
 	public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-		try{
+		try {
 			Properties prop = FileUtil.getFicheroAssetConfiguracion(this);
-			
-			if(prop != null){
-				PASS = (String)prop.get(Constantes.PROP_PASSWORD);
-				TIPO_CUENTA = (String)prop.get(Constantes.PROP_TIPO_CUENTA);
-				EMAIL = (String)prop.get(Constantes.PROP_EMAIL);
-				
-				switch((int)spDistancia.getSelectedItemId()){
+
+			if (prop != null) {
+				PASS = (String) prop.get(Constantes.PROP_PASSWORD);
+				TIPO_CUENTA = (String) prop.get(Constantes.PROP_TIPO_CUENTA);
+				EMAIL = (String) prop.get(Constantes.PROP_EMAIL);
+
+				switch ((int) spDistancia.getSelectedItemId()) {
 					case 0:
 						// 5000 metros
 						DISTANCIA_MINIMA_PARA_ACTUALIZACIONES = 5000;
@@ -198,8 +199,8 @@ public class ConfiguracionActivity extends AppCompatActivity implements Navigati
 						DISTANCIA_MINIMA_PARA_ACTUALIZACIONES = 20000;
 						break;
 				}
-				
-				switch((int)spTiempo.getSelectedItemId()){
+
+				switch ((int) spTiempo.getSelectedItemId()) {
 					case 0:
 						// 900000 milisegundos
 						TIEMPO_MINIMO_ENTRE_ACTUALIZACIONES = 900000;
@@ -217,8 +218,8 @@ public class ConfiguracionActivity extends AppCompatActivity implements Navigati
 						TIEMPO_MINIMO_ENTRE_ACTUALIZACIONES = 3600000;
 						break;
 				}
-				
-				switch((int)spFondo.getSelectedItemId()){
+
+				switch ((int) spFondo.getSelectedItemId()) {
 					case 0:
 						FONDO_PANTALLA = "1";
 						break;
@@ -229,7 +230,7 @@ public class ConfiguracionActivity extends AppCompatActivity implements Navigati
 						FONDO_PANTALLA = "3";
 						break;
 				}
-				
+
 				Map<String, String> valores = new HashMap<String, String>();
 				valores.put(Constantes.PROP_PASSWORD, PASS);
 				valores.put(Constantes.PROP_DISTANCIA_MINIMA_ACTUALIZACIONES, String.valueOf(DISTANCIA_MINIMA_PARA_ACTUALIZACIONES));
@@ -237,17 +238,30 @@ public class ConfiguracionActivity extends AppCompatActivity implements Navigati
 				valores.put(Constantes.PROP_TIPO_CUENTA, TIPO_CUENTA);
 				valores.put(Constantes.PROP_FONDO_PANTALLA, FONDO_PANTALLA);
 				valores.put(Constantes.PROP_EMAIL, EMAIL);
-				valores.put(Constantes.PROP_EMAIL_ENVIO, (String)prop.get(Constantes.PROP_EMAIL_ENVIO));
-				valores.put(Constantes.PROP_EMAIL_CHECK, (String)prop.get(Constantes.PROP_EMAIL_CHECK));
-				
+				valores.put(Constantes.PROP_EMAIL_ENVIO, (String) prop.get(Constantes.PROP_EMAIL_ENVIO));
+				valores.put(Constantes.PROP_EMAIL_CHECK, (String) prop.get(Constantes.PROP_EMAIL_CHECK));
+
 				LocationManager locationManagerGps = FileUtil.getLocationManagerGps();
 				LocationManager locationManagerInternet = FileUtil.getLocationManagerInternet();
 				Localizador localizador = FileUtil.getLocalizador();
-				
-				if(locationManagerGps != null && locationManagerGps.isProviderEnabled(LocationManager.GPS_PROVIDER))
+
+				if (locationManagerGps != null && locationManagerGps.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+					if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+							&& ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+						// TODO: Consider calling
+						//    ActivityCompat#requestPermissions
+						// here to request the missing permissions, and then overriding
+						//   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+						//                                          int[] grantResults)
+						// to handle the case where the user grants the permission. See the documentation
+						// for ActivityCompat#requestPermissions for more details.
+						return;
+					}
 					locationManagerGps.removeUpdates(localizador);
-				else if(locationManagerInternet != null && locationManagerInternet.isProviderEnabled(LocationManager.NETWORK_PROVIDER))
+
+				} else if(locationManagerInternet != null && locationManagerInternet.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
 					locationManagerInternet.removeUpdates(localizador);
+				}
 				
 				if(locationManagerGps != null && locationManagerGps.isProviderEnabled(LocationManager.GPS_PROVIDER))
 					FileUtil.getLocationManagerGps().requestLocationUpdates(LocationManager.GPS_PROVIDER,
@@ -337,18 +351,18 @@ public class ConfiguracionActivity extends AppCompatActivity implements Navigati
 		    placementWidth = MED_BANNER_WIDTH;
 		}
 		
-		MMAdView adView = new MMAdView(this);
-		adView.setApid("148574");
-		MMRequest request = new MMRequest();
-		adView.setMMRequest(request);
-		adView.setId(MMSDK.getDefaultAdId());
-		adView.setWidth(placementWidth);
-		adView.setHeight(BANNER_AD_HEIGHT);
+//		MMAdView adView = new MMAdView(this);
+//		adView.setApid("148574");
+//		MMRequest request = new MMRequest();
+//		adView.setMMRequest(request);
+//		adView.setId(MMSDK.getDefaultAdId());
+//		adView.setWidth(placementWidth);
+//		adView.setHeight(BANNER_AD_HEIGHT);
 		
 		LinearLayout layout = (LinearLayout)findViewById(R.id.linearLayout2);
 		layout.removeAllViews();
-		layout.addView(adView);
-		adView.getAd();
+//		layout.addView(adView);
+//		adView.getAd();
 	}
 
 	@Override

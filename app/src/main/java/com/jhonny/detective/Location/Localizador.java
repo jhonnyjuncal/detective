@@ -1,4 +1,4 @@
-package com.jhonny.detective.Location;
+package com.jhonny.detective.location;
 
 import java.util.Date;
 import android.content.Context;

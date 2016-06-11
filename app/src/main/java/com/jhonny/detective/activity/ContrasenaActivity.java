@@ -22,13 +22,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-
 import com.jhonny.detective.util.FileUtil;
 import com.jhonny.detective.R;
 import com.jhonny.detective.Constantes;
-import com.millennialmedia.android.MMAdView;
-import com.millennialmedia.android.MMRequest;
-import com.millennialmedia.android.MMSDK;
 import android.support.v7.app.AppCompatActivity;
 
 
@@ -49,7 +45,7 @@ public class ContrasenaActivity extends AppCompatActivity implements NavigationV
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.content_contrasena);
+		setContentView(R.layout.activity_contrasena);
 		contSalida = 0;
 		
 		try{
@@ -215,31 +211,31 @@ public class ContrasenaActivity extends AppCompatActivity implements NavigationV
 		    placementWidth = MED_BANNER_WIDTH;
 		}
 		
-		MMAdView adView1 = new MMAdView(this);
-		adView1.setApid("148574");
-		MMRequest request1 = new MMRequest();
-		adView1.setMMRequest(request1);
-		adView1.setId(MMSDK.getDefaultAdId());
-		adView1.setWidth(placementWidth);
-		adView1.setHeight(BANNER_AD_HEIGHT);
+//		MMAdView adView1 = new MMAdView(this);
+//		adView1.setApid("148574");
+//		MMRequest request1 = new MMRequest();
+//		adView1.setMMRequest(request1);
+//		adView1.setId(MMSDK.getDefaultAdId());
+//		adView1.setWidth(placementWidth);
+//		adView1.setHeight(BANNER_AD_HEIGHT);
 
 		LinearLayout layout2 = (LinearLayout)findViewById(R.id.linearLayout2);
 		layout2.removeAllViews();
-		layout2.addView(adView1);
-		adView1.getAd();
+//		layout2.addView(adView1);
+//		adView1.getAd();
 		
-		MMAdView adView2 = new MMAdView(this);
-		adView2.setApid("148574");
-		MMRequest request = new MMRequest();
-		adView2.setMMRequest(request);
-		adView2.setId(MMSDK.getDefaultAdId());
-		adView2.setWidth(placementWidth);
-		adView2.setHeight(BANNER_AD_HEIGHT);
+//		MMAdView adView2 = new MMAdView(this);
+//		adView2.setApid("148574");
+//		MMRequest request = new MMRequest();
+//		adView2.setMMRequest(request);
+//		adView2.setId(MMSDK.getDefaultAdId());
+//		adView2.setWidth(placementWidth);
+//		adView2.setHeight(BANNER_AD_HEIGHT);
 
 		LinearLayout layout3 = (LinearLayout)findViewById(R.id.linearLayout3);
 		layout3.removeAllViews();
-		layout3.addView(adView2);
-		adView2.getAd();
+//		layout3.addView(adView2);
+//		adView2.getAd();
 	}
 
 	@Override

@@ -2,13 +2,9 @@ package com.jhonny.detective.activity;
 
 import java.util.Locale;
 import org.joda.time.DateTime;
-
 import com.jhonny.detective.Constantes;
 import com.jhonny.detective.util.FileUtil;
 import com.jhonny.detective.R;
-import com.millennialmedia.android.MMAdView;
-import com.millennialmedia.android.MMRequest;
-import com.millennialmedia.android.MMSDK;
 import android.net.Uri;
 import android.os.Bundle;
 import android.content.Context;
@@ -52,7 +48,7 @@ public class AcercaActivity extends AppCompatActivity implements NavigationView.
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.content_acerca);
+		setContentView(R.layout.activity_acerca);
 		contSalida = 0;
 		
 		try{
@@ -202,18 +198,18 @@ public class AcercaActivity extends AppCompatActivity implements NavigationView.
 		    placementWidth = MED_BANNER_WIDTH;
 		}
 		
-		MMAdView adView = new MMAdView(this);
-		adView.setApid("148574");
-		MMRequest request = new MMRequest();
-		adView.setMMRequest(request);
-		adView.setId(MMSDK.getDefaultAdId());
-		adView.setWidth(placementWidth);
-		adView.setHeight(BANNER_AD_HEIGHT);
+//		MMAdView adView = new MMAdView(this);
+//		adView.setApid("148574");
+//		MMRequest request = new MMRequest();
+//		adView.setMMRequest(request);
+//		adView.setId(MMSDK.getDefaultAdId());
+//		adView.setWidth(placementWidth);
+//		adView.setHeight(BANNER_AD_HEIGHT);
 		
 		LinearLayout layout = (LinearLayout)findViewById(R.id.linearLayout2);
 		layout.removeAllViews();
-		layout.addView(adView);
-		adView.getAd();
+//		layout.addView(adView);
+//		adView.getAd();
 	}
 
 	@Override

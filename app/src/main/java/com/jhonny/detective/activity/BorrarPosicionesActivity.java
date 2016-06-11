@@ -3,9 +3,6 @@ package com.jhonny.detective.activity;
 import com.jhonny.detective.Constantes;
 import com.jhonny.detective.util.FileUtil;
 import com.jhonny.detective.R;
-import com.millennialmedia.android.MMAdView;
-import com.millennialmedia.android.MMRequest;
-import com.millennialmedia.android.MMSDK;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -45,7 +42,7 @@ public class BorrarPosicionesActivity extends AppCompatActivity implements Navig
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.content_borrar_posiciones);
+		setContentView(R.layout.activity_borrar_posiciones);
 		contSalida = 0;
 		
 		try{
@@ -67,18 +64,18 @@ public class BorrarPosicionesActivity extends AppCompatActivity implements Navig
 			    placementWidth = MED_BANNER_WIDTH;
 			}
 			
-			MMAdView adView = new MMAdView(this);
-			adView.setApid("148574");
-			MMRequest request = new MMRequest();
-			adView.setMMRequest(request);
-			adView.setId(MMSDK.getDefaultAdId());
-			adView.setWidth(placementWidth);
-			adView.setHeight(BANNER_AD_HEIGHT);
+//			MMAdView adView = new MMAdView(this);
+//			adView.setApid("148574");
+//			MMRequest request = new MMRequest();
+//			adView.setMMRequest(request);
+//			adView.setId(MMSDK.getDefaultAdId());
+//			adView.setWidth(placementWidth);
+//			adView.setHeight(BANNER_AD_HEIGHT);
 
 			LinearLayout layout = (LinearLayout)findViewById(R.id.linearLayout2);
 			//Add the adView to the layout. The layout is assumed to be a RelativeLayout.
-			layout.addView(adView);
-			adView.getAd();
+//			layout.addView(adView);
+//			adView.getAd();
 
 			DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 			ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -202,18 +199,18 @@ public class BorrarPosicionesActivity extends AppCompatActivity implements Navig
 		    placementWidth = MED_BANNER_WIDTH;
 		}
 		
-		MMAdView adView = new MMAdView(this);
-		adView.setApid("148574");
-		MMRequest request = new MMRequest();
-		adView.setMMRequest(request);
-		adView.setId(MMSDK.getDefaultAdId());
-		adView.setWidth(placementWidth);
-		adView.setHeight(BANNER_AD_HEIGHT);
+//		MMAdView adView = new MMAdView(this);
+//		adView.setApid("148574");
+//		MMRequest request = new MMRequest();
+//		adView.setMMRequest(request);
+//		adView.setId(MMSDK.getDefaultAdId());
+//		adView.setWidth(placementWidth);
+//		adView.setHeight(BANNER_AD_HEIGHT);
 		
 		LinearLayout layout = (LinearLayout)findViewById(R.id.linearLayout2);
 		layout.removeAllViews();
-		layout.addView(adView);
-		adView.getAd();
+//		layout.addView(adView);
+//		adView.getAd();
 	}
 
 	@Override

@@ -108,8 +108,8 @@ public class MapaActivity extends Activity {
 					CameraPosition camPos = new CameraPosition.Builder()
 					.target(ubicacion)	//Centramos el mapa en Madrid
 					.zoom(19)			//Establecemos el zoom en 19
-					.bearing(45)		//Establecemos la orientaci�n con el noreste arriba
-					.tilt(70)			//Bajamos el punto de vista de la c�mara 70 grados
+					.bearing(45)		//Establecemos la orientación con el noreste arriba
+					.tilt(70)			//Bajamos el punto de vista de la cámara 70 grados
 					.build();
 					
 					CameraUpdate cu = CameraUpdateFactory.newCameraPosition(camPos);

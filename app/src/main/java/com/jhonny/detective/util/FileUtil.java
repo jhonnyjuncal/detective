@@ -26,7 +26,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.jhonny.detective.Constantes;
-import com.jhonny.detective.Location.Localizador;
+import com.jhonny.detective.location.Localizador;
 import com.jhonny.detective.model.ObjetoPosicion;
 import com.jhonny.detective.activity.PrincipalActivity;
 import com.jhonny.detective.R;
@@ -84,7 +84,7 @@ public class FileUtil implements Serializable{
 	/**
 	 * Metodo que se le pasa un objeto de tipo Resources (clase que extiende a Activity) y devuelve
 	 * el fichero de propiedades "config.properties"
-	 * @param Resources
+	 * @param ctx
 	 * @return Properties
 	 */
 	public static Properties getFicheroAssetConfiguracion(Context ctx) throws IOException{
@@ -150,15 +150,14 @@ public class FileUtil implements Serializable{
 		}
 		return properties;
 	}
-	
-	
-	
+
 	/**
 	 * Devuelve las posiciones almacenadas en el fichero
-	 * @param recurso
-	 * @return listaPosiciones
+	 * @param ctx
+	 * @param tipoCuenta
+	 * @return
 	 * @throws IOException
-	 */
+     */
 	public static List<ObjetoPosicion> getListaAssetPosiciones(Context ctx, int tipoCuenta) throws IOException{
 		List<ObjetoPosicion> listaPosiciones = null;
 		InputStream instream = null;

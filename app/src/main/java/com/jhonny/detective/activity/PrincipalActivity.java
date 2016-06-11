@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
@@ -14,9 +13,6 @@ import com.jhonny.detective.model.ObjetoPosicion;
 import com.jhonny.detective.Constantes;
 import com.jhonny.detective.model.Email;
 import com.jhonny.detective.util.FileUtil;
-import com.millennialmedia.android.MMAdView;
-import com.millennialmedia.android.MMRequest;
-import com.millennialmedia.android.MMSDK;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -84,7 +80,7 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.content_principal);
+		setContentView(R.layout.activity_principal);
 		contSalida = 0;
 
 		try {
@@ -477,18 +473,18 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
 			placementWidth = MED_BANNER_WIDTH;
 		}
 
-		MMAdView adView = new MMAdView(this);
-		adView.setApid("148574");
-		MMRequest request = new MMRequest();
-		adView.setMMRequest(request);
-		adView.setId(MMSDK.getDefaultAdId());
-		adView.setWidth(placementWidth);
-		adView.setHeight(BANNER_AD_HEIGHT);
+//		MMAdView adView = new MMAdView(this);
+//		adView.setApid("148574");
+//		MMRequest request = new MMRequest();
+//		adView.setMMRequest(request);
+//		adView.setId(MMSDK.getDefaultAdId());
+//		adView.setWidth(placementWidth);
+//		adView.setHeight(BANNER_AD_HEIGHT);
 
 		LinearLayout layout = (LinearLayout) findViewById(R.id.linearLayout2);
 		layout.removeAllViews();
-		layout.addView(adView);
-		adView.getAd();
+//		layout.addView(adView);
+//		adView.getAd();
 	}
 
 	@Override
