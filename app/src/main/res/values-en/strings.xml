@@ -97,4 +97,7 @@
 	<string name="label_acerca">About</string>
 	<string name="navigation_drawer_open">Open navigation drawer</string>
 	<string name="navigation_drawer_close">Close navigation drawer</string>
+	<string name="label_comunicacion">Comunication</string>
+	<string name="label_borrar_posiciones">Delete positions</string>
+	<string name="label_informacion">Information</string>
 </resources>

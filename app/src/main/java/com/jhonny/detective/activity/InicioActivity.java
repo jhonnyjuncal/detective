@@ -12,6 +12,9 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
+import android.text.method.PasswordTransformationMethod;
+import android.text.method.TransformationMethod;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -40,11 +43,10 @@ public class InicioActivity extends AppCompatActivity implements NavigationView.
 	private View view;
 	private Context context;
 	
-	
     @Override
     public void onCreate(Bundle savedInstanceState) {
     	super.onCreate(savedInstanceState);
-    	setContentView(R.layout.content_inicio);
+    	setContentView(R.layout.activity_inicio);
     	contSalida = 0;
     	this.context = this;
     	this.view = getWindow().getDecorView();
@@ -62,15 +64,11 @@ public class InicioActivity extends AppCompatActivity implements NavigationView.
 		navigationView.setNavigationItemSelectedListener(this);
     }
     
-    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-//    	MenuInflater inflater = getSupportMenuInflater();
-//		inflater.inflate(R.menu.menu_inicio, menu);
 		return true;
     }
-    
-    
+
     @Override
     protected void onResume(){
     	super.onResume();
@@ -80,13 +78,11 @@ public class InicioActivity extends AppCompatActivity implements NavigationView.
         	EditText et = (EditText)findViewById(R.id.editText1);
         	et.setText("");
         	
-//        	reiniciarFondoOpciones();
         	cargaConfiguracionGlobal();
         }catch(Exception ex){
         	ex.printStackTrace();
         }
     }
-    
     
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -106,8 +102,7 @@ public class InicioActivity extends AppCompatActivity implements NavigationView.
     	//para las demas cosas, se reenvia el evento al listener habitual
     	return super.onKeyDown(keyCode, event);
     }
-    
-    
+
     public void accesoUsuarioRegistrado(View view){
     	Properties prop = new Properties();
     	Context ctx = this;
@@ -143,7 +138,7 @@ public class InicioActivity extends AppCompatActivity implements NavigationView.
     			Map <String, String> valores = new HashMap<String, String>();
     			
 				if(PASS == null || PASS.toString().equals("null")){
-					// contrase�a sin establecer
+					// contraseña sin establecer
 					PASS = passUsuario.getText().toString();
 					
 					valores.put(Constantes.PROP_PASSWORD, PASS);
@@ -159,11 +154,11 @@ public class InicioActivity extends AppCompatActivity implements NavigationView.
 				}
 				
 				if(passUsuario.getText().toString().equals(PASS)){
-					// contrase�a corrrecta
+					// contraseña corrrecta
 					Intent intent = new Intent(this, PrincipalActivity.class);
 					startActivity(intent);
 				}else{
-					// contrase�a incorrecta
+					// contraseña incorrecta
 					String text = getResources().getString(R.string.txt_datos_incorrectos);
 					Toast.makeText(InicioActivity.this, text, Toast.LENGTH_LONG).show();
 					passUsuario.setText("");
@@ -173,6 +168,15 @@ public class InicioActivity extends AppCompatActivity implements NavigationView.
     		ex.printStackTrace();
     	}
     }
+
+	public void changeTransformationMethod(View vista) {
+		EditText et = (EditText)findViewById(R.id.editText1);
+		if(et.getTransformationMethod() == null){
+			et.setTransformationMethod(new PasswordTransformationMethod());
+		}else {
+			et.setTransformationMethod(null);
+		}
+	}
     
 	private void cargaConfiguracionGlobal(){
 		try{
@@ -181,7 +185,7 @@ public class InicioActivity extends AppCompatActivity implements NavigationView.
 				if(fondo != null){
 					String imagen = Constantes.mapaFondo.get(Integer.parseInt(fondo));
 					int imageResource1 = this.view.getContext().getApplicationContext().getResources().getIdentifier(
-							imagen, "drawable", this.view.getContext().getApplicationContext().getPackageName());
+							imagen, "mipmap", this.view.getContext().getApplicationContext().getPackageName());
 					Drawable image = this.view.getContext().getResources().getDrawable(imageResource1);
 					ImageView imageView = (ImageView)findViewById(R.id.fondo_inicio);
 					imageView.setImageDrawable(image);
@@ -226,27 +230,28 @@ public class InicioActivity extends AppCompatActivity implements NavigationView.
 
 		if (id == R.id.nav_principal) {
 			intent = new Intent(this, InicioActivity.class);
-		} else if (id == R.id.nav_cambiar_contrasena) {
-			intent = new Intent(this, ContrasenaActivity.class);
-		} else if (id == R.id.nav_borrar_coordenadas) {
-			intent = new Intent(this, BorrarPosicionesActivity.class);
-		} else if (id == R.id.nav_compartir) {
+		} else if (id == R.id.nav_mapa) {
+			intent = new Intent(this, MapaActivity.class);
+		} else if (id == R.id.nav_posiciones) {
+			intent = new Intent(this, PosicionesActivity.class);
+//		} else if (id == R.id.nav_compartir) {
 //			intent = new Intent(this, EnConstruccion.class);
-		} else if (id == R.id.nav_send) {
+//		} else if (id == R.id.nav_send) {
 //			intent = new Intent(this, EnConstruccion.class);
 		} else if (id == R.id.nav_settings) {
 			intent = new Intent(this, ConfiguracionActivity.class);
-		} else if (id == R.id.nav_desarrollador) {
+		} else if (id == R.id.nav_password) {
+			intent = new Intent(this, ContrasenaActivity.class);
+		} else if (id == R.id.nav_borrar_coordenadas) {
+			intent = new Intent(this, BorrarPosicionesActivity.class);
+//		} else if (id == R.id.nav_desarrollador) {
 //			intent = new Intent(this, EnConstruccion.class);
 		} else if (id == R.id.nav_acerca) {
 			intent = new Intent(this, AcercaActivity.class);
 		}
-
 		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 		drawer.closeDrawer(GravityCompat.START);
-
 		startActivity(intent);
-
 		return true;
 	}
 

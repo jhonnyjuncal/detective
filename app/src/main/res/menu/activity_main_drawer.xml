@@ -5,18 +5,18 @@
         <item
             android:id="@+id/nav_principal"
             android:icon="@mipmap/ic_menu_home"
-            android:title="@string/label_inicio" />
+            android:title="@string/menu_settings0" />
         <item
-            android:id="@+id/nav_cambiar_contrasena"
+            android:id="@+id/nav_mapa"
             android:icon="@mipmap/ic_menu_home"
-            android:title="Gallery" />
+            android:title="@string/label_mostrar_mapa" />
         <item
-            android:id="@+id/nav_borrar_coordenadas"
+            android:id="@+id/nav_posiciones"
             android:icon="@mipmap/ic_menu_home"
-            android:title="Slideshow" />
+            android:title="@string/title_activity_posiciones" />
     </group>
-
-    <item android:title="Communicate">
+    <!--
+    <item android:title="@string/label_comunicacion">
         <menu>
             <item
                 android:id="@+id/nav_compartir"
@@ -25,26 +25,36 @@
             <item
                 android:id="@+id/nav_send"
                 android:icon="@mipmap/ic_menu_forward_mail"
-                android:title="Send" />
+                android:title="@string/label_enviar" />
         </menu>
     </item>
-
-    <item android:title="Config">
+    -->
+    <item android:title="@string/action_settings">
         <menu>
             <item
                 android:id="@+id/nav_settings"
                 android:icon="@mipmap/ic_menu_manage"
                 android:title="@string/action_settings" />
+            <item
+                android:id="@+id/nav_password"
+                android:icon="@mipmap/ic_menu_manage"
+                android:title="@string/label_cambio_contrasena" />
+            <item
+                android:id="@+id/nav_borrar_coordenadas"
+                android:icon="@mipmap/ic_menu_home"
+                android:title="@string/label_borrar_posiciones" />
         </menu>
     </item>
 
 
-    <item android:title="Acerca">
+    <item android:title="@string/label_informacion">
         <menu>
+            <!--
             <item
                 android:id="@+id/nav_desarrollador"
                 android:icon="@mipmap/ic_menu_contact"
                 android:title="@string/label_desarrollador" />
+                -->
             <item
                 android:id="@+id/nav_acerca"
                 android:icon="@mipmap/ic_menu_info_details"

@@ -97,4 +97,7 @@
 	<string name="label_acerca">Acerca de</string>
 	<string name="navigation_drawer_open">Abrir barra de navegación</string>
 	<string name="navigation_drawer_close">Cerrar barra de navegación</string>
+	<string name="label_comunicacion">Comunicacion</string>
+	<string name="label_borrar_posiciones">Borrar posiciones</string>
+	<string name="label_informacion">Informacion</string>
 </resources>

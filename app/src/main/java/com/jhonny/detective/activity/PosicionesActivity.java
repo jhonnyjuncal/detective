@@ -198,7 +198,7 @@ public class PosicionesActivity extends AppCompatActivity implements NavigationV
 				if(fondo != null){
 					String imagen = Constantes.mapaFondo.get(Integer.parseInt(fondo));
 					int imageResource1 = this.view.getContext().getApplicationContext().getResources().getIdentifier(
-							imagen, "drawable", this.view.getContext().getApplicationContext().getPackageName());
+							imagen, "mipmap", this.view.getContext().getApplicationContext().getPackageName());
 					Drawable image = this.view.getContext().getResources().getDrawable(imageResource1);
 					ImageView imageView = (ImageView)findViewById(R.id.fondo_posiciones);
 					imageView.setImageDrawable(image);
@@ -273,27 +273,28 @@ public class PosicionesActivity extends AppCompatActivity implements NavigationV
 
 		if (id == R.id.nav_principal) {
 			intent = new Intent(this, InicioActivity.class);
-		} else if (id == R.id.nav_cambiar_contrasena) {
-			intent = new Intent(this, ContrasenaActivity.class);
-		} else if (id == R.id.nav_borrar_coordenadas) {
-			intent = new Intent(this, BorrarPosicionesActivity.class);
-		} else if (id == R.id.nav_compartir) {
+		} else if (id == R.id.nav_mapa) {
+			intent = new Intent(this, MapaActivity.class);
+		} else if (id == R.id.nav_posiciones) {
+			intent = new Intent(this, PosicionesActivity.class);
+//		} else if (id == R.id.nav_compartir) {
 //			intent = new Intent(this, EnConstruccion.class);
-		} else if (id == R.id.nav_send) {
+//		} else if (id == R.id.nav_send) {
 //			intent = new Intent(this, EnConstruccion.class);
 		} else if (id == R.id.nav_settings) {
 			intent = new Intent(this, ConfiguracionActivity.class);
-		} else if (id == R.id.nav_desarrollador) {
+		} else if (id == R.id.nav_password) {
+			intent = new Intent(this, ContrasenaActivity.class);
+		} else if (id == R.id.nav_borrar_coordenadas) {
+			intent = new Intent(this, BorrarPosicionesActivity.class);
+//		} else if (id == R.id.nav_desarrollador) {
 //			intent = new Intent(this, EnConstruccion.class);
 		} else if (id == R.id.nav_acerca) {
 			intent = new Intent(this, AcercaActivity.class);
 		}
-
 		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 		drawer.closeDrawer(GravityCompat.START);
-
 		startActivity(intent);
-
 		return true;
 	}
 
