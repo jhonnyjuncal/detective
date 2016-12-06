@@ -6,135 +6,177 @@
 	android:layout_height="match_parent"
 	app:layout_behavior="@string/appbar_scrolling_view_behavior"
 	tools:context="com.jhonny.detective.activity.PosicionesActivity"
-	tools:showIn="@layout/app_bar_posiciones">
+	>
+	<!--tools:showIn="@layout/app_bar_posiciones"-->
 
-    <ImageView
-        android:id="@+id/fondo_posiciones"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="@string/variable_progreso"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_fondo1" />
-    
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
 
-	    <TextView
-	        android:id="@+id/textView1"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_marginLeft="5dp"
-	        android:layout_marginTop="10dp"
-	        android:focusable="true"
-	        android:text="@string/label_latitud"
-	        android:textColor="@color/blanco" />
-	
-	    <EditText
-	        android:id="@+id/editText1"
-	        android:layout_width="95dp"
-	        android:layout_height="30dp"
-	        android:layout_marginLeft="57dp"
-	        android:layout_marginTop="5dp"
-	        android:inputType="text"
-	        android:paddingBottom="0dp"
-	        android:paddingLeft="5dp"
-	        android:paddingRight="0dp"
-	        android:paddingTop="0dp"
-	        android:textSize="12sp" />
-	
-	    <TextView
-	        android:id="@+id/textView2"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_marginLeft="160dp"
-	        android:layout_marginTop="10dp"
-	        android:text="@string/label_longitud"
-	        android:textColor="@color/blanco" />
-	
-	    <EditText
-	        android:id="@+id/editText2"
-	        android:layout_width="95dp"
-	        android:layout_height="30dp"
-	        android:layout_marginLeft="222dp"
-	        android:layout_marginTop="5dp"
-	        android:inputType="text"
-	        android:paddingBottom="0dp"
-	        android:paddingLeft="5dp"
-	        android:paddingRight="0dp"
-	        android:paddingTop="0dp"
-	        android:textSize="12sp" />
-	    
-	    <TextView
-	        android:id="@+id/textView3"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_marginLeft="5dp"
-	        android:layout_marginTop="40dp"
-	        android:text="@string/label_fecha"
-	        android:textColor="@color/blanco" />
-	
-	    <EditText
-	        android:id="@+id/editText3"
-	        android:layout_width="95dp"
-	        android:layout_height="30dp"
-	        android:layout_marginLeft="57dp"
-	        android:layout_marginTop="38dp"
-	        android:inputType="text"
-	        android:paddingBottom="0dp"
-	        android:paddingLeft="5dp"
-	        android:paddingRight="0dp"
-	        android:paddingTop="0dp"
-	        android:textSize="12sp" />
-	    
-	    <TextView
-	        android:id="@+id/textView4"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_marginLeft="160dp"
-	        android:layout_marginTop="40dp"
-	        android:text="@string/label_hora"
-	        android:textColor="@color/blanco" />
-	
-	    <EditText
-	        android:id="@+id/editText4"
-	        android:layout_width="95dp"
-	        android:layout_height="30dp"
-	        android:layout_marginLeft="222dp"
-	        android:layout_marginTop="38dp"
-	        android:inputType="text"
-	        android:paddingBottom="0dp"
-	        android:paddingLeft="5dp"
-	        android:paddingRight="0dp"
-	        android:paddingTop="0dp"
-	        android:textSize="12sp" />
-	    
-	    <ListView
-	        android:id="@+id/listView1"
-	        android:layout_width="match_parent"
-	        android:layout_height="match_parent"
-	        android:layout_alignParentBottom="true"
-	        android:layout_alignParentLeft="true"
-	        android:layout_alignParentRight="true"
-	        android:layout_alignParentTop="true"
-	        android:layout_marginBottom="50dp"
-	        android:layout_marginTop="80dp"
-	        android:background="@color/gris_claro"
-	        android:clickable="true"
-	        android:fadingEdge="vertical|horizontal"
-	        android:fadingEdgeLength="1dp"
-	        android:paddingLeft="@dimen/padding_izquierda" />
-	    
-	    <LinearLayout
-		    android:id="@+id/linearLayout2"
-		    android:layout_width="fill_parent"
-		    android:layout_height="50dp"
-		    android:layout_alignParentBottom="true"
-		    android:orientation="vertical"
-		    android:weightSum="1">
-			
+		<LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@mipmap/ic_fondo_coordenadas">
+
+			<LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+				<LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="50dp">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+						<com.jhonny.detective.component.CustomTextView1
+							android:id="@+id/item_textHora"
+							android:text="Latitud"
+							android:layout_height="wrap_content"
+							android:textColor="@color/blanco"
+							android:textSize="16sp"
+							android:layout_weight="1"
+							android:gravity="center"
+							android:layout_width="150dp" />
+
+						<com.jhonny.detective.component.CustomTextView1
+							android:id="@+id/textView3"
+							android:text="---"
+							android:layout_height="wrap_content"
+							android:textColor="@color/blanco"
+							android:textSize="26sp"
+							android:layout_weight="1"
+							android:gravity="center"
+							android:layout_width="150dp"
+							android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+						<com.jhonny.detective.component.CustomTextView1
+							android:id="@+id/item_textFecha"
+							android:text="Longitud"
+							android:layout_height="wrap_content"
+							android:textColor="@color/blanco"
+							android:textSize="16sp"
+							android:layout_weight="1"
+							android:gravity="center"
+							android:layout_width="150dp" />
+
+						<com.jhonny.detective.component.CustomTextView1
+							android:id="@+id/textView4"
+							android:text="---"
+							android:layout_height="wrap_content"
+							android:textColor="@color/blanco"
+							android:textSize="26sp"
+							android:layout_weight="1"
+							android:gravity="center"
+							android:layout_width="150dp"
+							android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+				<LinearLayout
+					android:orientation="vertical"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="20dp"
+					android:layout_marginBottom="20dp">
+
+					<ImageView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						app:srcCompat="@mipmap/ic_separador_rectangulo"
+						android:id="@+id/imageView4" />
+				</LinearLayout>
+
+				<LinearLayout
+					android:orientation="horizontal"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:gravity="center_horizontal">
+
+					<LinearLayout
+						android:orientation="horizontal"
+						android:layout_height="match_parent"
+						android:layout_width="wrap_content">
+
+						<ImageView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							app:srcCompat="@mipmap/ic_calendario"
+							android:id="@+id/imageView8"
+							android:layout_weight="1"
+							android:gravity="left" />
+
+						<com.jhonny.detective.component.CustomTextView1
+							android:id="@+id/textView5"
+							android:text="---"
+							android:layout_height="wrap_content"
+							android:textColor="@color/blanco"
+							android:textSize="16sp"
+							android:layout_weight="1"
+							android:gravity="left"
+							android:layout_width="wrap_content"
+							android:layout_marginLeft="5dp"
+							android:textStyle="normal|bold" />
+
+					</LinearLayout>
+
+					<LinearLayout
+						android:orientation="horizontal"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:gravity="right"
+						android:layout_marginLeft="50dp">
+
+						<ImageView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							app:srcCompat="@mipmap/ic_reloj"
+							android:id="@+id/imageView7"
+							android:layout_weight="1"
+							android:gravity="right" />
+
+						<com.jhonny.detective.component.CustomTextView1
+							android:id="@+id/textView6"
+							android:text="---"
+							android:layout_height="wrap_content"
+							android:textColor="@color/blanco"
+							android:textSize="16sp"
+							android:layout_weight="1"
+							android:layout_width="wrap_content"
+							android:layout_marginLeft="5dp"
+							android:gravity="right"
+							android:textStyle="normal|bold" />
+
+					</LinearLayout>
+
+				</LinearLayout>
+
+			</LinearLayout>
+
 		</LinearLayout>
-	    
-	</RelativeLayout>
-	
+
+		<ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+			android:id="@+id/listView1" />
+
+	</LinearLayout>
+
 </RelativeLayout>

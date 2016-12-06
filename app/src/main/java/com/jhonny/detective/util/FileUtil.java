@@ -26,9 +26,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.jhonny.detective.Constantes;
-import com.jhonny.detective.location.Localizador;
-import com.jhonny.detective.model.ObjetoPosicion;
 import com.jhonny.detective.activity.PrincipalActivity;
+import com.jhonny.detective.service.LocalizadorListener;
+import com.jhonny.detective.model.ObjetoPosicion;
 import com.jhonny.detective.R;
 
 
@@ -37,7 +37,7 @@ public class FileUtil implements Serializable{
 	private static final long serialVersionUID = -3721769765641235234L;
 	private static LocationManager locationManagerGps;
 	private static LocationManager locationManagerInternet;
-	private static Localizador localizador;
+	private static LocalizadorListener localizador;
 	private static WifiManager wifi = null;
 	
 	
@@ -61,12 +61,12 @@ public class FileUtil implements Serializable{
 	}
 	
 	
-	public static Localizador getLocalizador(){
+	public static LocalizadorListener getLocalizador(){
 		return localizador;
 	}
 	
 	
-	public static void setLocalizador(Localizador localizador){
+	public static void setLocalizador(LocalizadorListener localizador){
 		FileUtil.localizador = localizador;
 	}
 	
@@ -388,13 +388,6 @@ public class FileUtil implements Serializable{
 		return resultado;
 	}
 	
-	
-	/**
-	 * Devuelve la hora formateada dependiendo de la configuracion del telefono
-	 * @param fecha
-	 * @param locale
-	 * @return hora formateada
-	 */
 	public static String getHoraFormateada(Date fecha, Locale locale){
 		String resultado = "";
 		
@@ -406,13 +399,7 @@ public class FileUtil implements Serializable{
 		}
 		return resultado;
 	}
-	
-	
-	/**
-	 * Guarda los valores de la configuracion actual
-	 * @param valores
-	 * @param ctx
-	 */
+
 	public static void guardaDatosConfiguracion(Map<String, String> valores, Context ctx){
 		OutputStreamWriter out = null;
 		String distMinActualizaciones = null;
@@ -485,8 +472,7 @@ public class FileUtil implements Serializable{
 			}
 		}
 	}
-	
-	
+
 	public static int getPosicionSpinnerSeleccionada(int variable, Context ctx){
 		int resultado = 0;
 		String key = null;
@@ -510,24 +496,6 @@ public class FileUtil implements Serializable{
 							resultado = Constantes.mapaTmpo.get(key).intValue();
 						}
 						break;
-					case 3:
-						// Fondo de pantalla de aplicacion
-						if(!Constantes.mapaFondo.isEmpty()){
-							String fondo = getFondoPantallaAlmacenado(ctx);
-							if(fondo == null){
-								resultado = 0;
-							}else{
-								int cont = 0;
-								for(String valor : Constantes.mapaFondo.values()){
-									if(valor.equals(fondo.toString())){
-										resultado = cont;
-										break;
-									}
-									cont++;
-								}
-							}
-						}
-						break;
 					default:
 						return 0;
 				}
@@ -537,24 +505,7 @@ public class FileUtil implements Serializable{
 		}
 		return resultado;
 	}
-	
-	
-	public static String getFondoPantallaAlmacenado(Context context){
-		try{
-			Properties prop = null;
-			if(!Constantes.mapaFondo.isEmpty()){
-				prop = FileUtil.getFicheroAssetConfiguracion(context);
-				if(prop != null && prop.containsKey(Constantes.PROP_FONDO_PANTALLA.toString())){
-					return (String)prop.get(Constantes.PROP_FONDO_PANTALLA);
-				}
-			}
-		}catch(Exception ex){
-			ex.printStackTrace();
-		}
-		return null;
-	}
-	
-	
+
 	public static void cargaPosicionesAlmacenadas(Context ctx, View view){
     	int contador = 0;
     	try{
@@ -572,9 +523,9 @@ public class FileUtil implements Serializable{
 				contador = 0;
 			}
 			
-			TextView textoPosiciones = (TextView)view.findViewById(R.id.textView4);
-			if(textoPosiciones != null){
-				textoPosiciones.setText(String.valueOf(contador));
+			TextView cantidadPosiciones = (TextView)view.findViewById(R.id.ppal_textView5);
+			if(cantidadPosiciones != null){
+				cantidadPosiciones.setText(String.valueOf(contador));
 			}
 			
 			if(lista != null){

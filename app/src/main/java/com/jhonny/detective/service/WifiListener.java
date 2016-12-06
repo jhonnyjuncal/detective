@@ -16,7 +16,7 @@ public class WifiListener extends BroadcastReceiver {
 	public void onReceive(Context context, Intent intent) {
 		try{
 			if(PrincipalActivity.viewPrincipal != null && PrincipalActivity.resourcesPrincipal != null){
-				TextView textoWifi = (TextView)PrincipalActivity.viewPrincipal.findViewById(R.id.textView6);
+				TextView textoWifi = (TextView) PrincipalActivity.viewPrincipal.findViewById(R.id.ppal_textView6);
 	    		
 	    		if(FileUtil.getWifiManager().isWifiEnabled())
 	    			textoWifi.setText(PrincipalActivity.resourcesPrincipal.getString(R.string.txt_encendida));

@@ -2,7 +2,8 @@ package com.jhonny.detective.activity;
 
 import java.util.Locale;
 import org.joda.time.DateTime;
-import com.jhonny.detective.Constantes;
+
+import com.jhonny.detective.activity.custom.DrawerNavigationControl;
 import com.jhonny.detective.util.FileUtil;
 import com.jhonny.detective.R;
 import android.net.Uri;
@@ -10,7 +11,6 @@ import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
-import android.graphics.drawable.Drawable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -25,25 +25,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.support.v7.app.AppCompatActivity;
 
-
-public class AcercaActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class AcercaActivity extends DrawerNavigationControl {
 	
 	private int contSalida = 0;
 	private View view;
 	private Context context;
-	
-	//Constants for tablet sized ads (728x90)
-	private static final int IAB_LEADERBOARD_WIDTH = 728;
-	private static final int MED_BANNER_WIDTH = 480;
-	//Constants for phone sized ads (320x50)
-	private static final int BANNER_AD_WIDTH = 320;
-	private static final int BANNER_AD_HEIGHT = 50;
-	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -125,9 +114,6 @@ public class AcercaActivity extends AppCompatActivity implements NavigationView.
 		super.onResume();
 		contSalida = 0;
 		this.context = this;
-//		reiniciarFondoOpciones();
-		cargaConfiguracionGlobal();
-		cargaPublicidad();
 	}
 	
 	@Override
@@ -148,24 +134,6 @@ public class AcercaActivity extends AppCompatActivity implements NavigationView.
     	//para las demas cosas, se reenvia el evento al listener habitual
     	return super.onKeyDown(keyCode, event);
     }
-	
-	private void cargaConfiguracionGlobal(){
-		try{
-			if(this.view != null){
-				String fondo = FileUtil.getFondoPantallaAlmacenado(this.context);
-				if(fondo != null){
-					String imagen = Constantes.mapaFondo.get(Integer.parseInt(fondo));
-					int imageResource1 = this.view.getContext().getApplicationContext().getResources().getIdentifier(
-							imagen, "mipmap", this.view.getContext().getApplicationContext().getPackageName());
-					Drawable image = this.view.getContext().getResources().getDrawable(imageResource1);
-					ImageView imageView = (ImageView)findViewById(R.id.fondo_acerca);
-					imageView.setImageDrawable(image);
-				}
-			}
-		}catch(Exception ex){
-			ex.printStackTrace();
-		}
-	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -187,30 +155,6 @@ public class AcercaActivity extends AppCompatActivity implements NavigationView.
 		DisplayMetrics metrics = this.getResources().getDisplayMetrics();
 		return metrics.widthPixels >= adWidthPx;
 	}
-	
-	private void cargaPublicidad(){
-		int placementWidth = BANNER_AD_WIDTH;
-		
-		//Finds an ad that best fits a users device.
-		if(canFit(IAB_LEADERBOARD_WIDTH)) {
-		    placementWidth = IAB_LEADERBOARD_WIDTH;
-		}else if(canFit(MED_BANNER_WIDTH)) {
-		    placementWidth = MED_BANNER_WIDTH;
-		}
-		
-//		MMAdView adView = new MMAdView(this);
-//		adView.setApid("148574");
-//		MMRequest request = new MMRequest();
-//		adView.setMMRequest(request);
-//		adView.setId(MMSDK.getDefaultAdId());
-//		adView.setWidth(placementWidth);
-//		adView.setHeight(BANNER_AD_HEIGHT);
-		
-		LinearLayout layout = (LinearLayout)findViewById(R.id.linearLayout2);
-		layout.removeAllViews();
-//		layout.addView(adView);
-//		adView.getAd();
-	}
 
 	@Override
 	public void onBackPressed() {
@@ -220,40 +164,6 @@ public class AcercaActivity extends AppCompatActivity implements NavigationView.
 		} else {
 			super.onBackPressed();
 		}
-	}
-
-	@SuppressWarnings("StatementWithEmptyBody")
-	@Override
-	public boolean onNavigationItemSelected(MenuItem item) {
-		// Handle navigation view item clicks here.
-		int id = item.getItemId();
-		Intent intent = null;
-
-		if (id == R.id.nav_principal) {
-			intent = new Intent(this, InicioActivity.class);
-		} else if (id == R.id.nav_mapa) {
-			intent = new Intent(this, MapaActivity.class);
-		} else if (id == R.id.nav_posiciones) {
-			intent = new Intent(this, PosicionesActivity.class);
-//		} else if (id == R.id.nav_compartir) {
-//			intent = new Intent(this, EnConstruccion.class);
-//		} else if (id == R.id.nav_send) {
-//			intent = new Intent(this, EnConstruccion.class);
-		} else if (id == R.id.nav_settings) {
-			intent = new Intent(this, ConfiguracionActivity.class);
-		} else if (id == R.id.nav_password) {
-			intent = new Intent(this, ContrasenaActivity.class);
-		} else if (id == R.id.nav_borrar_coordenadas) {
-			intent = new Intent(this, BorrarPosicionesActivity.class);
-//		} else if (id == R.id.nav_desarrollador) {
-//			intent = new Intent(this, EnConstruccion.class);
-		} else if (id == R.id.nav_acerca) {
-			intent = new Intent(this, AcercaActivity.class);
-		}
-		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-		drawer.closeDrawer(GravityCompat.START);
-		startActivity(intent);
-		return true;
 	}
 
 	@Override

@@ -38,8 +38,7 @@ public class Constantes implements Serializable{
 	public static final String DEFECTO_EMAIL_CHECK = "false";
 	public static final Map<String, Integer> mapaDist = new HashMap<String, Integer>();
 	public static final Map<String, Integer> mapaTmpo = new HashMap<String, Integer>();
-	public static final Map<Integer, String> mapaFondo = new HashMap<Integer, String>();
-	
+
 	static{
 		mapaDist.put("5000.0", 0);
 		mapaDist.put("10000.0", 1);
@@ -50,9 +49,5 @@ public class Constantes implements Serializable{
 		mapaTmpo.put("180000", 1);
 		mapaTmpo.put("2700000", 2);
 		mapaTmpo.put("3600000", 3);
-		
-		mapaFondo.put(1, "ic_fondo1");
-		mapaFondo.put(2, "ic_fondo2");
-		mapaFondo.put(3, "ic_fondo3");
 	}
 }

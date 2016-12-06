@@ -12,9 +12,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
-import android.text.method.TransformationMethod;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,15 +20,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-import android.support.v7.app.AppCompatActivity;
 
 import com.jhonny.detective.R;
 import com.jhonny.detective.Constantes;
+import com.jhonny.detective.activity.custom.DrawerNavigationControl;
 import com.jhonny.detective.util.FileUtil;
 
+public class InicioActivity extends DrawerNavigationControl {
 
-public class InicioActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-	
 	private String PASS;
 	private String DIST_MIN_ACTUALIZACIONES;
 	private String TMP_MIN_ACTUALIZACIONES;
@@ -78,7 +75,6 @@ public class InicioActivity extends AppCompatActivity implements NavigationView.
         	EditText et = (EditText)findViewById(R.id.editText1);
         	et.setText("");
         	
-        	cargaConfiguracionGlobal();
         }catch(Exception ex){
         	ex.printStackTrace();
         }
@@ -178,24 +174,6 @@ public class InicioActivity extends AppCompatActivity implements NavigationView.
 		}
 	}
     
-	private void cargaConfiguracionGlobal(){
-		try{
-			if(this.view != null){
-				String fondo = FileUtil.getFondoPantallaAlmacenado(this.context);
-				if(fondo != null){
-					String imagen = Constantes.mapaFondo.get(Integer.parseInt(fondo));
-					int imageResource1 = this.view.getContext().getApplicationContext().getResources().getIdentifier(
-							imagen, "mipmap", this.view.getContext().getApplicationContext().getPackageName());
-					Drawable image = this.view.getContext().getResources().getDrawable(imageResource1);
-					ImageView imageView = (ImageView)findViewById(R.id.fondo_inicio);
-					imageView.setImageDrawable(image);
-				}
-			}
-		}catch(Exception ex){
-			ex.printStackTrace();
-		}
-	}
-
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will
@@ -219,40 +197,6 @@ public class InicioActivity extends AppCompatActivity implements NavigationView.
 		} else {
 			super.onBackPressed();
 		}
-	}
-
-	@SuppressWarnings("StatementWithEmptyBody")
-	@Override
-	public boolean onNavigationItemSelected(MenuItem item) {
-		// Handle navigation view item clicks here.
-		int id = item.getItemId();
-		Intent intent = null;
-
-		if (id == R.id.nav_principal) {
-			intent = new Intent(this, InicioActivity.class);
-		} else if (id == R.id.nav_mapa) {
-			intent = new Intent(this, MapaActivity.class);
-		} else if (id == R.id.nav_posiciones) {
-			intent = new Intent(this, PosicionesActivity.class);
-//		} else if (id == R.id.nav_compartir) {
-//			intent = new Intent(this, EnConstruccion.class);
-//		} else if (id == R.id.nav_send) {
-//			intent = new Intent(this, EnConstruccion.class);
-		} else if (id == R.id.nav_settings) {
-			intent = new Intent(this, ConfiguracionActivity.class);
-		} else if (id == R.id.nav_password) {
-			intent = new Intent(this, ContrasenaActivity.class);
-		} else if (id == R.id.nav_borrar_coordenadas) {
-			intent = new Intent(this, BorrarPosicionesActivity.class);
-//		} else if (id == R.id.nav_desarrollador) {
-//			intent = new Intent(this, EnConstruccion.class);
-		} else if (id == R.id.nav_acerca) {
-			intent = new Intent(this, AcercaActivity.class);
-		}
-		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-		drawer.closeDrawer(GravityCompat.START);
-		startActivity(intent);
-		return true;
 	}
 
 	@Override

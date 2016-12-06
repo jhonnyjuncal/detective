@@ -5,112 +5,89 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	app:layout_behavior="@string/appbar_scrolling_view_behavior"
+	android:background="@mipmap/ic_fondo_borrar"
 	tools:context="com.jhonny.detective.activity.BorrarPosicionesActivity"
 	tools:showIn="@layout/app_bar_borrar_posiciones">
 
-    <ImageView
-        android:id="@+id/fondo_borrar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="@string/variable_progreso"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_fondo1" />
 
-	<RelativeLayout 
-	    android:layout_width="match_parent"
-	    android:layout_height="match_parent" >
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
 
-		<TextView
-		    android:id="@+id/borr_textView1"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_marginLeft="10dp"
-		    android:layout_marginTop="10dp"
-		    android:text="@string/label_datos_coordenadas"
-		    android:textColor="@color/blanco"
-		    android:textSize="@dimen/tamano_fuente"
-		    android:textStyle="bold" />
+		<ImageView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			app:srcCompat="@mipmap/ic_carita"
+			android:id="@+id/imageView1"
+			android:layout_marginTop="50dp" />
+
+		<com.jhonny.detective.component.CustomTextView1
+			android:text="Sus coordenadas almacenadas"
+			android:layout_width="match_parent"
+			android:layout_height="20dp"
+			android:id="@+id/item_textHora"
+			android:textColor="@color/blanco"
+			android:textSize="16dp"
+			android:layout_weight="1"
+			android:gravity="center_horizontal"
+			android:layout_marginTop="20dp" />
 
 		<LinearLayout
-		    android:layout_width="match_parent"
-		    android:layout_height="100dp"
-		    android:layout_marginBottom="50dp"
-		    android:layout_marginLeft="10dp"
-		    android:layout_marginRight="10dp"
-		    android:layout_marginTop="45dp"
-		    android:background="@color/gris_oscuro"
-		    android:orientation="vertical" >
-		    
-		    <LinearLayout
-		        android:layout_width="match_parent"
-		        android:layout_height="40dp"
-		        android:background="@color/gris_oscuro"
-		        android:orientation="horizontal" >
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_marginLeft="20dp"
+			android:layout_marginRight="20dp"
+			android:layout_marginTop="50dp"
+			android:background="@color/gris_oscuro">
 
-				<TextView
-				    android:id="@+id/borr_textView2"
-				    android:layout_width="wrap_content"
-				    android:layout_height="wrap_content"
-				    android:layout_marginLeft="10dp"
-				    android:layout_marginTop="10dp"
-				    android:text="@string/label_cantidad_coord"
-				    android:textColor="@color/blanco"
-				    android:textSize="@dimen/tamano_fuente" />
-	
-				<TextView
-				    android:id="@+id/borr_textView3"
-				    android:layout_width="wrap_content"
-				    android:layout_height="wrap_content"
-				    android:layout_marginLeft="5dp"
-				    android:layout_marginTop="10dp"
-				    android:text="@string/variable_progreso"
-				    android:textColor="@color/blanco"
-				    android:textSize="@dimen/tamano_fuente" />
+			<com.jhonny.detective.component.CustomTextView1
+                android:text="Cantidad de coordenadas"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:id="@+id/item_textFecha"
+                android:textColor="@color/blanco"
+                android:textSize="16dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="20dp" />
 
-			</LinearLayout>
+			<com.jhonny.detective.component.CustomTextView1
+                android:text="20"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:id="@+id/borr_textView3"
+                android:textColor="@color/blanco"
+                android:textSize="16dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+				android:layout_marginBottom="20dp" />
 
-		    <LinearLayout
-		        android:layout_width="match_parent"
-		        android:layout_height="match_parent"
-		        android:background="@color/gris_oscuro"
-		        android:orientation="horizontal" >
-
-		        <TextView
-		            android:id="@+id/borr_textView4"
-		            android:layout_width="wrap_content"
-		            android:layout_height="wrap_content"
-		            android:layout_marginLeft="10dp"
-		            android:layout_marginTop="20dp"
-		            android:text="@string/txt_advertencia_borrar"
-		            android:textColor="@color/blanco"
-		            android:textSize="@dimen/tamano_fuente"
-		            android:textStyle="italic" />
-		        
-	    	</LinearLayout>
-		    
 		</LinearLayout>
-	
-		<Button
-		    android:id="@+id/borr_button1"
-		    android:layout_width="wrap_content"
-		    android:layout_height="40dp"
-		    android:layout_centerHorizontal="true"
-		    android:layout_marginTop="170dp"
-		    android:onClick="borraCoordenadasActuales"
-		    android:text="@string/menu_settings3"
-		    android:textSize="@dimen/tamano_fuente"
-		    android:typeface="normal" />
-		
+
 		<LinearLayout
-		    android:id="@+id/linearLayout2"
-		    android:layout_width="fill_parent"
-		    android:layout_height="50dp"
-		    android:layout_alignParentBottom="true"
-		    android:orientation="vertical"
-		    android:weightSum="1">
-			
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_marginTop="70dp"
+			android:layout_marginLeft="20dp"
+			android:layout_marginRight="20dp"
+			android:gravity="center_vertical|center_horizontal">
+
+			<Button
+				android:text="Borrar coordenadas"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/button"
+				android:background="@mipmap/ic_fondo_boton_borrar"
+				android:textColor="@color/blanco"
+				android:textSize="16dp"
+				android:onClick="borraCoordenadasActuales" />
+
 		</LinearLayout>
 
-	</RelativeLayout>
-	    
+	</LinearLayout>
+
 </RelativeLayout>

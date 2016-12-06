@@ -18,4 +18,6 @@
 	<color name="colorPrimary">#3F51B5</color>
 	<color name="colorPrimaryDark">#303F9F</color>
 	<color name="colorAccent">#FF4081</color>
+	<color name="color_font_light_gray">#A2A1B8</color>
+	<color name="color_font_dark_gray">#151431</color>
 </resources>

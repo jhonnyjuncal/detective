@@ -1,209 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
+	app:layout_behavior="@string/appbar_scrolling_view_behavior"
+	android:background="@mipmap/ic_fondo_inicio"
+	android:orientation="vertical"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	app:layout_behavior="@string/appbar_scrolling_view_behavior"
-	tools:context="com.jhonny.detective.activity.PrincipalActivity"
-	tools:showIn="@layout/app_bar_principal">
-
-    <ImageView
-        android:id="@+id/fondo_principal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="@string/variable_progreso"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_fondo1" />
+	tools:showIn="@layout/app_bar_principal"
+	tools:context="com.jhonny.detective.activity.PrincipalActivity">
 
 	<LinearLayout
-		android:orientation="vertical"
+		android:orientation="horizontal"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent">
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal"
+		android:divider="@color/blanco"
+		android:showDividers="beginning|middle|end">
 
 		<LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-			android:layout_margin="10dp">
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="20dp"
+			android:layout_marginBottom="20dp">
 
+			<com.jhonny.detective.component.CustomTextView1
+				android:text="GPS"
+				android:layout_width="match_parent"
+				android:layout_height="20dp"
+				android:id="@+id/ppal_textView1"
+				android:textColor="@color/blanco"
+				android:textSize="14dp"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:layout_marginTop="10dp"
+				android:layout_marginBottom="10dp" />
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="25dp">
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				app:srcCompat="@mipmap/ic_separador"
+				android:id="@+id/imageView1" />
 
-                <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_status_gps"
-                    android:textColor="@color/blanco"
-                    android:textSize="@dimen/tamano_fuente" />
+			<com.jhonny.detective.component.CustomTextView1
+				android:text="---"
+				android:layout_width="match_parent"
+				android:layout_height="20dp"
+				android:id="@+id/ppal_textView4"
+				android:textColor="@color/gris_claro"
+				android:textSize="12dp"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:layout_marginTop="10dp"
+				android:layout_marginBottom="10dp" />
 
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/variable_progreso"
-                    android:textColor="@color/blanco"
-                    android:textSize="@dimen/tamano_fuente"
-					android:layout_marginLeft="5dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="25dp">
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_posiciones"
-                    android:textColor="@color/blanco"
-                    android:textSize="@dimen/tamano_fuente" />
-
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/variable_progreso"
-                    android:textColor="@color/blanco"
-                    android:textSize="@dimen/tamano_fuente"
-					android:layout_marginLeft="5dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="25dp">
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_estado_wifi_3g"
-                    android:textColor="@color/blanco"
-                    android:textSize="@dimen/tamano_fuente" />
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/variable_progreso"
-                    android:textColor="@color/blanco"
-                    android:textSize="@dimen/tamano_fuente"
-					android:layout_marginLeft="5dp" />
-            </LinearLayout>
-
-        </LinearLayout>
+		</LinearLayout>
 
 		<LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-			android:layout_margin="30dp">
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="50dp"
+			android:layout_marginRight="50dp"
+			android:layout_marginTop="20dp"
+			android:layout_marginBottom="20dp">
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-				android:gravity="center_vertical">
+			<com.jhonny.detective.component.CustomTextView1
+				android:text="POSICIONES"
+				android:layout_width="match_parent"
+				android:layout_height="20dp"
+				android:id="@+id/ppal_textView2"
+				android:textColor="@color/blanco"
+				android:textSize="14dp"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:layout_marginTop="10dp"
+				android:layout_marginBottom="10dp" />
 
-                <ImageButton
-    android:id="@+id/imageButton1"
-    style="android:imageButtonStyle"
-    android:layout_width="75dp"
-    android:layout_height="75dp"
-    android:layout_alignParentLeft="true"
-                    android:contentDescription="@string/variable_progreso"
-    android:onClick="muestraMapa"
-    android:scaleType="centerInside"
-    android:src="@mipmap/ic_posiciones" />
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				app:srcCompat="@mipmap/ic_separador"
+				android:id="@+id/imageView2" />
 
-                <TextView
-    android:id="@+id/textView9"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentLeft="true"
-    android:layout_below="@id/imageButton1"
-                    android:text="@string/label_mostrar_mapa"
-    android:textColor="@color/blanco"
-    android:textSize="@dimen/tamano_fuente" />
-            </LinearLayout>
+			<com.jhonny.detective.component.CustomTextView1
+				android:text="---"
+				android:layout_width="match_parent"
+				android:layout_height="20dp"
+				android:id="@+id/ppal_textView5"
+				android:textColor="@color/gris_claro"
+				android:textSize="12dp"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:layout_marginTop="10dp"
+				android:layout_marginBottom="10dp" />
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-				android:gravity="center_vertical">
+		</LinearLayout>
 
-                <ImageButton
-    android:id="@+id/imageButton2"
-    android:layout_width="75dp"
-    android:layout_height="75dp"
-    android:layout_alignParentRight="true"
-                    android:contentDescription="@string/variable_progreso"
-    android:onClick="muestraPosiciones"
-    android:scaleType="centerInside"
-    android:src="@mipmap/ic_listado" />
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="20dp"
+			android:layout_marginBottom="20dp">
 
-                <TextView
-    android:id="@+id/textView10"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignBottom="@array/lista_distancias"
-    android:layout_alignParentRight="true"
-    android:layout_below="@id/imageButton2"
-                    android:text="@string/label_mostrar_posiciones"
-    android:textColor="@color/blanco"
-    android:textSize="@dimen/tamano_fuente" />
-            </LinearLayout>
+			<com.jhonny.detective.component.CustomTextView1
+				android:text="WI-FI"
+				android:layout_width="match_parent"
+				android:layout_height="20dp"
+				android:id="@+id/ppal_textView3"
+				android:textColor="@color/blanco"
+				android:textSize="14dp"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:layout_marginTop="10dp"
+				android:layout_marginBottom="10dp" />
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-				android:gravity="center_vertical">
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				app:srcCompat="@mipmap/ic_separador"
+				android:id="@+id/imageView3" />
 
-                <ImageButton
-    android:id="@+id/imageButton3"
-    android:layout_width="75dp"
-    android:layout_height="75dp"
-    android:layout_centerHorizontal="true"
-                    android:contentDescription="@string/variable_progreso"
-    android:onClick="enviarPosicionesPorMail"
-    android:scaleType="centerInside"
-    android:src="@mipmap/ic_mail" />
+			<com.jhonny.detective.component.CustomTextView1
+				android:text="---"
+				android:layout_width="match_parent"
+				android:layout_height="20dp"
+				android:id="@+id/ppal_textView6"
+				android:textColor="@color/gris_claro"
+				android:textSize="12dp"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:layout_marginTop="10dp"
+				android:layout_marginBottom="10dp" />
 
-                <TextView
-    android:id="@+id/textView11"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@id/imageButton3"
-    android:layout_centerHorizontal="true"
-    android:text="@string/label_enviar_email"
-    android:textColor="@color/blanco"
-    android:textSize="@dimen/tamano_fuente" />
+		</LinearLayout>
 
-            </LinearLayout>
-
-        </LinearLayout>
 	</LinearLayout>
 
-	<RelativeLayout
+	<LinearLayout
+		android:orientation="horizontal"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent" >
+		android:layout_marginTop="50dp"
+		android:layout_marginLeft="20dp"
+		android:layout_marginRight="20dp"
+		android:background="@mipmap/ic_fondo_principal_panel"
+		android:layout_height="80dp"
+		android:gravity="center_vertical"
+		android:clickable="true"
+		android:onClick="muestraMapa">
 
-		<LinearLayout
-		    android:id="@+id/linearLayout2"
-		    android:layout_width="fill_parent"
-		    android:layout_height="50dp"
-		    android:layout_alignParentBottom="true"
-		    android:orientation="vertical"
-		    android:weightSum="1" />
-			
-	</RelativeLayout>
+		<ImageView
+			android:id="@+id/imageView4"
+			android:layout_width="5dp"
+			android:layout_height="match_parent"
+			app:srcCompat="@mipmap/ic_elipse_naranja"
+			android:layout_weight="1" />
 
-</RelativeLayout>
+		<com.jhonny.detective.component.CustomTextView1
+			android:text="@string/label_mostrar_mapa"
+			android:layout_width="250dp"
+			android:layout_height="wrap_content"
+			android:id="@+id/ppal_textView61"
+			android:textColor="@color/blanco"
+			android:textSize="16dp" />
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_marginTop="10dp"
+		android:layout_marginLeft="20dp"
+		android:layout_marginRight="20dp"
+		android:background="@mipmap/ic_fondo_principal_panel"
+		android:layout_height="80dp"
+		android:gravity="center_vertical"
+		android:clickable="true"
+		android:onClick="muestraPosiciones">
+
+		<ImageView
+			android:id="@+id/imageView5"
+			android:layout_width="5dp"
+			app:srcCompat="@mipmap/ic_elipse_naranja"
+			android:layout_weight="1"
+			android:layout_height="match_parent" />
+
+		<com.jhonny.detective.component.CustomTextView1
+			android:text="@string/label_mostrar_posiciones"
+			android:layout_width="250dp"
+			android:layout_height="wrap_content"
+			android:id="@+id/ppal_textView62"
+			android:textColor="@color/blanco"
+			android:textSize="16dp"
+			android:layout_weight="0.15" />
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_marginTop="10dp"
+		android:layout_marginLeft="20dp"
+		android:layout_marginRight="20dp"
+		android:background="@mipmap/ic_fondo_principal_panel"
+		android:layout_height="80dp"
+		android:gravity="center_vertical"
+		android:clickable="true"
+		android:onClick="enviarPosicionesPorMail">
+
+		<ImageView
+			android:id="@+id/imageView6"
+			android:layout_width="5dp"
+			android:layout_height="match_parent"
+			app:srcCompat="@mipmap/ic_elipse_naranja"
+			android:layout_weight="1" />
+
+		<com.jhonny.detective.component.CustomTextView1
+			android:text="@string/label_enviar_email"
+			android:layout_width="250dp"
+			android:layout_height="wrap_content"
+			android:id="@+id/ppal_textView63"
+			android:textColor="@color/blanco"
+			android:textSize="16dp"
+			android:layout_weight="0.19" />
+
+	</LinearLayout>
+
+</LinearLayout>

@@ -8,199 +8,186 @@
 	tools:context="com.jhonny.detective.activity.AcercaActivity"
 	tools:showIn="@layout/app_bar_acerca">
 
-    <ImageView
-        android:id="@+id/fondo_acerca"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="@string/variable_progreso"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_fondo1" />
-
 	<LinearLayout
+		android:orientation="vertical"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:orientation="vertical">
+		android:layout_height="match_parent">
 
 		<LinearLayout
+			android:orientation="vertical"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:gravity="center">
-
-			<ImageView
-				android:id="@+id/acer_imageView1"
-				android:layout_width="60dp"
-				android:layout_height="70dp"
-				android:layout_alignParentLeft="true"
-				android:layout_alignParentTop="true"
-				android:contentDescription="@string/app_name"
-				android:src="@drawable/private_detective_icon" />
-
-		</LinearLayout>
+			android:layout_height="200dp"
+			android:background="@mipmap/ic_fondo_acerca" />
 
 		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:gravity="center_horizontal" >
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-			<TextView
-                android:id="@+id/acer_textView1"
-                android:layout_width="wrap_content"
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="50dp">
+
+				<com.jhonny.detective.component.CustomTextView1
+					android:text="@string/version_app"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:id="@+id/textView17"
+					android:textColor="@color/color_font_light_gray"
+					android:layout_weight="1"
+					android:layout_marginLeft="10dp"
+					android:gravity="left" />
+
+				<com.jhonny.detective.component.CustomTextView1
+					android:text="@string/variable_progreso"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:id="@+id/acer_textView3"
+					android:textColor="@color/color_font_dark_gray"
+					android:layout_weight="1"
+					android:layout_marginRight="10dp"
+					android:gravity="right" />
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="16dp">
+
+				<com.jhonny.detective.component.CustomTextView1
+					android:text="@string/fecha_creacion"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:id="@+id/textView15"
+					android:textColor="@color/color_font_light_gray"
+					android:layout_weight="1"
+					android:layout_marginLeft="10dp"
+					android:gravity="left" />
+
+				<com.jhonny.detective.component.CustomTextView1
+					android:text="@string/variable_progreso"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:id="@+id/acer_textView5"
+					android:textColor="@color/color_font_dark_gray"
+					android:layout_weight="1"
+					android:layout_marginRight="10dp"
+					android:gravity="right" />
+			</LinearLayout>
+
+			<LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-				android:layout_toRightOf="@+id/acer_imageView1"
-                android:text="@string/app_name"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:textColor="@color/blanco" />
-		</LinearLayout>
+				android:layout_marginTop="16dp">
 
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:gravity="center_horizontal"
-			android:layout_marginTop="10dp">
+				<com.jhonny.detective.component.CustomTextView1
+					android:text="@string/pais_creacion"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:id="@+id/textView13"
+					android:textColor="@color/color_font_light_gray"
+					android:layout_weight="1"
+					android:layout_marginLeft="10dp"
+					android:gravity="left" />
 
-			<TextView
-                android:id="@+id/acer_textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-				android:layout_toRightOf="@+id/acer_imageView1"
-                android:text="@string/version_app"
-                android:textSize="15sp"
-                android:textColor="@color/blanco" />
+				<com.jhonny.detective.component.CustomTextView1
+					android:text="@string/pais"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:id="@+id/textView12"
+					android:textColor="@color/color_font_dark_gray"
+					android:layout_weight="1"
+					android:layout_marginRight="10dp"
+					android:gravity="right" />
+			</LinearLayout>
 
-			<TextView
-                android:id="@+id/acer_textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-				android:layout_toRightOf="@id/acer_textView2"
-                android:text="@string/variable_progreso"
-                android:textColor="@color/blanco"
-                android:textSize="15sp"
-				android:layout_marginLeft="5dp" />
-		</LinearLayout>
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="16dp">
 
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:gravity="center_horizontal"
-			android:layout_marginTop="5dp">
+				<com.jhonny.detective.component.CustomTextView1
+					android:text="@string/label_desarrollado_por"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:id="@+id/textView8"
+					android:textColor="@color/color_font_light_gray"
+					android:layout_weight="1"
+					android:layout_marginLeft="10dp"
+					android:gravity="left" />
 
-			<TextView
-                android:id="@+id/acer_textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-				android:layout_toRightOf="@+id/acer_imageView1"
-                android:text="@string/fecha_creacion"
-                android:textSize="15sp"
-                android:textColor="@color/blanco" />
+				<com.jhonny.detective.component.CustomTextView1
+					android:text="@string/label_creador"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:id="@+id/acer_textView7"
+					android:textColor="@color/color_font_dark_gray"
+					android:layout_weight="1"
+					android:layout_marginRight="10dp"
+					android:gravity="right" />
+			</LinearLayout>
 
-			<TextView
-                android:id="@+id/acer_textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-				android:layout_toRightOf="@id/acer_textView4"
-                android:text="@string/variable_progreso"
-                android:textColor="@color/blanco"
-                android:textSize="15sp"
-				android:layout_marginLeft="5dp" />
-		</LinearLayout>
-
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:gravity="center_horizontal"
-			android:layout_marginTop="5dp">
-
-			<TextView
-                android:id="@+id/acer_textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-				android:layout_toRightOf="@+id/acer_imageView1"
-                android:text="@string/pais_creacion"
-                android:textSize="15sp"
-                android:textColor="@color/blanco" />
-
-			<TextView
-                android:id="@+id/acer_textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-				android:layout_toRightOf="@id/acer_textView8"
-                android:text="@string/pais"
-                android:textColor="@color/blanco"
-                android:textSize="15sp"
-				android:layout_marginLeft="5dp" />
-		</LinearLayout>
-
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:gravity="center_horizontal"
-			android:layout_marginTop="5dp">
-
-			<TextView
-                android:id="@+id/acer_textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_below="@+id/acer_imageView1"
-				android:text="@string/label_desarrollado_por"
-                android:textColor="@color/blanco"
-                android:textSize="15sp" />
-
-			<TextView
-                android:id="@+id/acer_textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/acer_textView6"
-				android:text="@string/label_creador"
-                android:textColor="@color/blanco"
-                android:textSize="15sp"
-                android:textStyle="bold"
-				android:layout_marginLeft="5dp" />
-		</LinearLayout>
-
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:gravity="center_horizontal"
-			android:layout_marginTop="30dp">
-
-			<ImageView
-                android:id="@+id/acer_imageView2"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_alignParentLeft="true"
-                android:layout_below="@id/acer_textView7"
-				android:contentDescription="@string/app_name"
-                android:src="@mipmap/ic_facebook" />
-
-			<ImageView
-                android:id="@+id/acer_imageView3"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/acer_textView7"
-				android:contentDescription="@string/app_name"
-                android:src="@mipmap/ic_google_plus"
-				android:layout_marginLeft="50dp" />
 		</LinearLayout>
 
 	</LinearLayout>
-    
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_marginTop="130dp"
+		android:gravity="center_horizontal"
+		android:layout_height="100dp">
 
 		<LinearLayout
-		    android:id="@+id/linearLayout2"
-		    android:layout_width="fill_parent"
-		    android:layout_height="50dp"
-		    android:layout_alignParentBottom="true"
-		    android:orientation="vertical"
-		    android:weightSum="1">
-		    
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:gravity="center_horizontal"
+			android:layout_marginRight="15dp">
+
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				app:srcCompat="@mipmap/ic_facebook"
+				android:id="@+id/acer_imageView2" />
+
 		</LinearLayout>
 
-	</RelativeLayout>
-	
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:gravity="center_horizontal">
+
+			<ImageView
+                android:layout_height="100dp"
+                app:srcCompat="@mipmap/mi_foto"
+                android:id="@+id/imageView2"
+				android:keepScreenOn="false"
+                android:baselineAlignBottom="false"
+				android:layout_width="135dp" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:gravity="center_horizontal"
+			android:layout_marginLeft="15dp">
+
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				app:srcCompat="@mipmap/ic_google_plus"
+				android:id="@+id/acer_imageView3" />
+
+		</LinearLayout>
+
+	</LinearLayout>
+
 </RelativeLayout>
