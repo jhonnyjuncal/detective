@@ -84,14 +84,18 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
 
-        <receiver android:name=".service.WifiListener" >
+        <receiver android:name="com.jhonny.detective.service.WifiListener" >
             <intent-filter>
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
                 <action android:name="android.net.wifi.STATE_CHANGE" />
             </intent-filter>
         </receiver>
 
-        <service android:name=".service.ServicioActualizacion" />
+        <service android:name="com.jhonny.detective.service.ServicioActualizacion" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAxJgGFxEg__U_joNwJyUGKhtT743LbqbM" />
     </application>
 
 </manifest>
